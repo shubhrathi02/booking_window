@@ -25,8 +25,8 @@ public class BookingController {
         return bookingService.getBookingsByUser(userId);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/bookings")
-    public void deleteBooking(@RequestBody Long id, @RequestParam Long userId) {
+    @RequestMapping(method = RequestMethod.DELETE, path = "/bookings/{id}")
+    public void deleteBooking(@PathVariable Long id, @RequestParam Long userId) {
         if (userId == null) {
             throw new RuntimeException("UserId not available");
         }

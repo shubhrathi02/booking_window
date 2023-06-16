@@ -79,7 +79,7 @@ public class BookingService {
 
         BookingEntity bookingEntity = bookingRepository.getByIdAndUserId(id, userId);
         if(bookingEntity == null) {
-            throw new RuntimeException("Bad request: Booking does not exist.");
+            throw new BadRequestException("Booking does not exist.");
         }
 
         validateBooking(bookingDto);
